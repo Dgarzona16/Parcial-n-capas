@@ -1,7 +1,8 @@
-package com.code_of_duty.parcialncapas.Entities;
+package com.code_of_duty.parcialncapas.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Date;
 import java.util.UUID;
@@ -11,12 +12,12 @@ import java.util.UUID;
 @Table(name = "Song_X_Playlist")
 public class PlaylistXSong {
     @Id
-    public UUID code;
-    public Date date_added;
+    private UUID code;
+    private Date date_added;
     @ManyToOne
     @JoinColumn(name = "playlist_code", referencedColumnName = "code")
-    public Playlist playlist;
+    private Playlist playlist;
     @ManyToOne
     @JoinColumn(name = "song_code", referencedColumnName = "code")
-    public Song song;
+    private Song song;
 }
